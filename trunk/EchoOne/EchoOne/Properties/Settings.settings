@@ -1,0 +1,12 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="com.echo.EchoOne.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="EchoOneWS" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost:8080/EchoOne/WebService/EchoOneWS.asmx</Value>
+    </Setting>
+    <Setting Name="ImgeUrl" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">http://localhost:8080/EchoOne/images/logo.jpg</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

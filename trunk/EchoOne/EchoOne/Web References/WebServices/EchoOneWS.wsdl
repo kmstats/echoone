@@ -1,0 +1,419 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s1="http://microsoft.com/wsdl/types/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:import namespace="http://microsoft.com/wsdl/types/" />
+      <s:element name="GetRoles">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetRolesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetRolesResult" type="tns:ArrayOfAnyType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfAnyType">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="anyType" nillable="true" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetUsersByRole">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="roleName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUsersByRoleResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetUsersByRoleResult" type="tns:ArrayOfAnyType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDepts">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetDeptsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDeptsResult" type="tns:ArrayOfAnyType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserByDept">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="deptName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserByDeptResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetUserByDeptResult" type="tns:ArrayOfAnyType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ValidUser">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ValidUserResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ValidUserResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserByName">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="User">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ApplicationId" type="s1:guid" />
+          <s:element minOccurs="1" maxOccurs="1" name="UserId" type="s1:guid" />
+          <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LoweredUserName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MobileAlias" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsAnonymous" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="LastActivityDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="UsersInRole" type="tns:ArrayOfUsersInRole" />
+          <s:element minOccurs="0" maxOccurs="1" name="Membership" type="tns:Membership" />
+          <s:element minOccurs="0" maxOccurs="1" name="UserInDept" type="tns:UserInDept" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfUsersInRole">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="UsersInRole" nillable="true" type="tns:UsersInRole" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="UsersInRole">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="UserId" type="s1:guid" />
+          <s:element minOccurs="1" maxOccurs="1" name="RoleId" type="s1:guid" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Membership">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ApplicationId" type="s1:guid" />
+          <s:element minOccurs="1" maxOccurs="1" name="UserId" type="s1:guid" />
+          <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="PasswordFormat" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="PasswordSalt" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MobilePIN" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LoweredEmail" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PasswordQuestion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PasswordAnswer" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsApproved" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsLockedOut" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="CreateDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="LastLoginDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="LastPasswordChangedDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="LastLockoutDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="FailedPasswordAttemptCount" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="FailedPasswordAttemptWindowStart" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="FailedPasswordAnswerAttemptCount" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="FailedPasswordAnswerAttemptWindowStart" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Comment" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="UserInDept">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="UserId" type="s1:guid" />
+          <s:element minOccurs="1" maxOccurs="1" name="DeptId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Dept" type="tns:Dept" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Dept">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="DeptName" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetUserByNameResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetUserByNameResult" type="tns:User" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFunctionByUserId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="userId" type="s1:guid" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Function">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s1:guid" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="FuncType" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Path" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ImgIndex" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="FuncInRole" type="tns:ArrayOfFuncInRole" />
+          <s:element minOccurs="0" maxOccurs="1" name="FuncType1" type="tns:FuncType" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfFuncInRole">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="FuncInRole" nillable="true" type="tns:FuncInRole" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="FuncInRole">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="FuncId" type="s1:guid" />
+          <s:element minOccurs="1" maxOccurs="1" name="RoleId" type="s1:guid" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="FuncType">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfFunction">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Function" nillable="true" type="tns:Function" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetFunctionByUserIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetFunctionByUserIdResult" type="tns:ArrayOfFunction" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://microsoft.com/wsdl/types/">
+      <s:simpleType name="guid">
+        <s:restriction base="s:string">
+          <s:pattern value="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}" />
+        </s:restriction>
+      </s:simpleType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetRolesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetRoles" />
+  </wsdl:message>
+  <wsdl:message name="GetRolesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetRolesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetUsersByRoleSoapIn">
+    <wsdl:part name="parameters" element="tns:GetUsersByRole" />
+  </wsdl:message>
+  <wsdl:message name="GetUsersByRoleSoapOut">
+    <wsdl:part name="parameters" element="tns:GetUsersByRoleResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDeptsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDepts" />
+  </wsdl:message>
+  <wsdl:message name="GetDeptsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDeptsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetUserByDeptSoapIn">
+    <wsdl:part name="parameters" element="tns:GetUserByDept" />
+  </wsdl:message>
+  <wsdl:message name="GetUserByDeptSoapOut">
+    <wsdl:part name="parameters" element="tns:GetUserByDeptResponse" />
+  </wsdl:message>
+  <wsdl:message name="ValidUserSoapIn">
+    <wsdl:part name="parameters" element="tns:ValidUser" />
+  </wsdl:message>
+  <wsdl:message name="ValidUserSoapOut">
+    <wsdl:part name="parameters" element="tns:ValidUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetUserByNameSoapIn">
+    <wsdl:part name="parameters" element="tns:GetUserByName" />
+  </wsdl:message>
+  <wsdl:message name="GetUserByNameSoapOut">
+    <wsdl:part name="parameters" element="tns:GetUserByNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetFunctionByUserIdSoapIn">
+    <wsdl:part name="parameters" element="tns:GetFunctionByUserId" />
+  </wsdl:message>
+  <wsdl:message name="GetFunctionByUserIdSoapOut">
+    <wsdl:part name="parameters" element="tns:GetFunctionByUserIdResponse" />
+  </wsdl:message>
+  <wsdl:portType name="EchoOneWSSoap">
+    <wsdl:operation name="GetRoles">
+      <wsdl:input message="tns:GetRolesSoapIn" />
+      <wsdl:output message="tns:GetRolesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUsersByRole">
+      <wsdl:input message="tns:GetUsersByRoleSoapIn" />
+      <wsdl:output message="tns:GetUsersByRoleSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDepts">
+      <wsdl:input message="tns:GetDeptsSoapIn" />
+      <wsdl:output message="tns:GetDeptsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserByDept">
+      <wsdl:input message="tns:GetUserByDeptSoapIn" />
+      <wsdl:output message="tns:GetUserByDeptSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidUser">
+      <wsdl:input message="tns:ValidUserSoapIn" />
+      <wsdl:output message="tns:ValidUserSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserByName">
+      <wsdl:input message="tns:GetUserByNameSoapIn" />
+      <wsdl:output message="tns:GetUserByNameSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFunctionByUserId">
+      <wsdl:input message="tns:GetFunctionByUserIdSoapIn" />
+      <wsdl:output message="tns:GetFunctionByUserIdSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="EchoOneWSSoap" type="tns:EchoOneWSSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetRoles">
+      <soap:operation soapAction="http://tempuri.org/GetRoles" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUsersByRole">
+      <soap:operation soapAction="http://tempuri.org/GetUsersByRole" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDepts">
+      <soap:operation soapAction="http://tempuri.org/GetDepts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserByDept">
+      <soap:operation soapAction="http://tempuri.org/GetUserByDept" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidUser">
+      <soap:operation soapAction="http://tempuri.org/ValidUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserByName">
+      <soap:operation soapAction="http://tempuri.org/GetUserByName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFunctionByUserId">
+      <soap:operation soapAction="http://tempuri.org/GetFunctionByUserId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="EchoOneWSSoap12" type="tns:EchoOneWSSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetRoles">
+      <soap12:operation soapAction="http://tempuri.org/GetRoles" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUsersByRole">
+      <soap12:operation soapAction="http://tempuri.org/GetUsersByRole" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDepts">
+      <soap12:operation soapAction="http://tempuri.org/GetDepts" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserByDept">
+      <soap12:operation soapAction="http://tempuri.org/GetUserByDept" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidUser">
+      <soap12:operation soapAction="http://tempuri.org/ValidUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserByName">
+      <soap12:operation soapAction="http://tempuri.org/GetUserByName" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFunctionByUserId">
+      <soap12:operation soapAction="http://tempuri.org/GetFunctionByUserId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="EchoOneWS">
+    <wsdl:port name="EchoOneWSSoap" binding="tns:EchoOneWSSoap">
+      <soap:address location="http://localhost:8080/EchoOne/WebService/EchoOneWS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="EchoOneWSSoap12" binding="tns:EchoOneWSSoap12">
+      <soap12:address location="http://localhost:8080/EchoOne/WebService/EchoOneWS.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

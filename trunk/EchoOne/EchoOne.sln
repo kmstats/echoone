@@ -1,0 +1,52 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EchoLib", "..\EchoLib\EchoLib.csproj", "{F10E3168-0A96-4AC8-A1E3-7E0E25511ED5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EchoOne", "EchoOne\EchoOne.csproj", "{F2C45701-838D-4934-B980-829656841454}"
+	ProjectSection(ProjectDependencies) = postProject
+		{01F22452-8C81-42F4-ACE9-52615672061C} = {01F22452-8C81-42F4-ACE9-52615672061C}
+		{F10E3168-0A96-4AC8-A1E3-7E0E25511ED5} = {F10E3168-0A96-4AC8-A1E3-7E0E25511ED5}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EchoOneWeb", "EchoOneWeb\EchoOneWeb.csproj", "{01F22452-8C81-42F4-ACE9-52615672061C}"
+	ProjectSection(ProjectDependencies) = postProject
+		{F10E3168-0A96-4AC8-A1E3-7E0E25511ED5} = {F10E3168-0A96-4AC8-A1E3-7E0E25511ED5}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "流动党员管理", "流动党员管理\流动党员管理.csproj", "{4D9A5CDF-7F02-4C39-B85E-003737DF6DB6}"
+	ProjectSection(ProjectDependencies) = postProject
+		{01F22452-8C81-42F4-ACE9-52615672061C} = {01F22452-8C81-42F4-ACE9-52615672061C}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SubversionScc) = preSolution
+		Svn-Managed = True
+		Manager = AnkhSVN - Subversion Support for Visual Studio
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F10E3168-0A96-4AC8-A1E3-7E0E25511ED5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F10E3168-0A96-4AC8-A1E3-7E0E25511ED5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F10E3168-0A96-4AC8-A1E3-7E0E25511ED5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F10E3168-0A96-4AC8-A1E3-7E0E25511ED5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F2C45701-838D-4934-B980-829656841454}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F2C45701-838D-4934-B980-829656841454}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F2C45701-838D-4934-B980-829656841454}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F2C45701-838D-4934-B980-829656841454}.Release|Any CPU.Build.0 = Release|Any CPU
+		{01F22452-8C81-42F4-ACE9-52615672061C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{01F22452-8C81-42F4-ACE9-52615672061C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{01F22452-8C81-42F4-ACE9-52615672061C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{01F22452-8C81-42F4-ACE9-52615672061C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D9A5CDF-7F02-4C39-B85E-003737DF6DB6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D9A5CDF-7F02-4C39-B85E-003737DF6DB6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D9A5CDF-7F02-4C39-B85E-003737DF6DB6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D9A5CDF-7F02-4C39-B85E-003737DF6DB6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
