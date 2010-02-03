@@ -19,8 +19,9 @@ namespace com.echo.PartyMemberOM
         
         public mainForm()
         {
-            InitializeComponent();
 
+
+            InitializeComponent();
             AddControls();
         }
 
@@ -51,6 +52,9 @@ namespace com.echo.PartyMemberOM
             curUser = u;
             InitializeComponent();
             AddControls();
+
+            System.Diagnostics.Process p = System.Diagnostics.Process.Start("regsvr32.exe", " /s kdbole6.dll");
+            p.WaitForInputIdle();//等待执行注册命令完毕  
         }
 
         private void OnExit(object sender, EventArgs e)
@@ -99,10 +103,11 @@ namespace com.echo.PartyMemberOM
                     }
                 }
 	        }
-	        catch (Exception)
+	        catch (InvalidOperationException ex)
 	        {
-        		
-		        throw;
+
+                System.Diagnostics.Process p = System.Diagnostics.Process.Start("regsvr32.exe", " kdbole6.dll");
+                p.WaitForInputIdle();//等待执行注册命令完毕  
 	        }
         }
 
